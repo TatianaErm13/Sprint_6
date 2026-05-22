@@ -1,19 +1,21 @@
 import pytest
+
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
-
-
-import pytest
-from selenium import webdriver
 
 
 @pytest.fixture
 def driver():
 
-    browser = webdriver.Firefox()
+    service = Service()
 
-    browser.set_page_load_timeout(30)
+    browser = webdriver.Firefox(service=service)
+
+    browser.set_page_load_timeout(60)
+
+    browser.maximize_window()
 
     yield browser
 
     browser.quit()
+    

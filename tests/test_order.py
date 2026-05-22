@@ -44,3 +44,4 @@ class TestOrder:
         order_page.fill_second_form(date)
 
         assert order_page.check_order_created()
+        

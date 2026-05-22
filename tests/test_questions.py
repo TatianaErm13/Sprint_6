@@ -31,3 +31,4 @@ class TestQuestions:
         actual_text = page.get_answer_text(index)
 
         assert actual_text == expected_text
+        

@@ -62,3 +62,15 @@ class OrderPageLocators:
         By.XPATH,
         ".//div[contains(text(),'Заказ оформлен')]"
     )
+
+    @staticmethod
+    def metro_station(station_name):
+        return (
+            By.XPATH,
+            f".//div[text()='{station_name}']"
+        )
+
+    RENT_PERIOD_OPTION = (
+        By.XPATH,
+        ".//div[text()='сутки']"
+    )

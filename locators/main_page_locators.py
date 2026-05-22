@@ -27,3 +27,20 @@ class MainPageLocators:
     By.CLASS_NAME,
     "Home_FAQ__3uVm4"
     )
+
+    @staticmethod
+    def question_locator(index):
+
+        return (
+            By.ID,
+            f"accordion__heading-{index}"
+        )
+
+    @staticmethod
+    def answer_locator(index):
+
+        return (
+            By.ID,
+            f"accordion__panel-{index}"
+        )
+    

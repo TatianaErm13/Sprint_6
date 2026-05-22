@@ -1,12 +1,15 @@
 import allure
 
 from pages.main_page import MainPage
-from data.constants import BASE_URL
+from data.constants import (
+    BASE_URL,
+    YANDEX_URL
+)
 
 
 class TestLogo:
 
-    @allure.title("Проверка перехода по клику на логотип Самоката")
+    @allure.title("Проверка перехода на главную страницу Самоката")
     def test_scooter_logo_redirect(self, driver):
 
         page = MainPage(driver)
@@ -15,7 +18,7 @@ class TestLogo:
 
         page.click_scooter_logo()
 
-        assert BASE_URL in page.get_current_url()
+        assert page.get_current_url() == BASE_URL
 
     @allure.title("Проверка перехода по логотипу Яндекса")
     def test_yandex_logo_redirect(self, driver):
@@ -28,12 +31,7 @@ class TestLogo:
 
         page.switch_to_yandex_tab()
 
-        page.wait_for_yandex_page_load()
+        current_url = page.get_yandex_url()
 
-        current_url = page.get_current_url()
-
-        assert (
-            "dzen" in current_url
-            or "yandex" in current_url
-            or "ya.ru" in current_url
-        )
+        assert "yandex.ru" in page.get_current_url()
+        
